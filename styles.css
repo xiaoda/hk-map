@@ -32,7 +32,6 @@ body {
   color: #fff;
   text-decoration: none;
   border-radius: 12px;
-  overflow: hidden;
   cursor: pointer;
 }
 
@@ -66,44 +65,51 @@ body {
   position: absolute;
   inset: 0;
   opacity: 0;
+  visibility: hidden;
   border-radius: inherit;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(var(--region-color), 0.16));
-  box-shadow:
-    inset 0 0 0 2px rgba(var(--region-color), 0.9),
-    inset 0 0 24px rgba(255, 160, 74, 0.12),
-    0 10px 28px rgba(74, 35, 6, 0.18);
-  transition: opacity 220ms ease;
+  pointer-events: none;
+  box-shadow: 0 10px 28px rgba(var(--region-dark), 0.38);
+  transition: none;
 }
 
 .region-link::after {
   content: "";
   position: absolute;
-  top: -25%;
-  bottom: -25%;
-  left: -45%;
-  width: 24%;
+  inset: 10px;
   opacity: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transform: skewX(-16deg);
-  transition: left 520ms ease, opacity 180ms ease;
+  visibility: hidden;
+  border-radius: 6px;
+  pointer-events: none;
+  background:
+    linear-gradient(#fff, #fff) left top / 24px 3px no-repeat,
+    linear-gradient(#fff, #fff) left top / 3px 24px no-repeat,
+    linear-gradient(#fff, #fff) right top / 24px 3px no-repeat,
+    linear-gradient(#fff, #fff) right top / 3px 24px no-repeat,
+    linear-gradient(#fff, #fff) left bottom / 24px 3px no-repeat,
+    linear-gradient(#fff, #fff) left bottom / 3px 24px no-repeat,
+    linear-gradient(#fff, #fff) right bottom / 24px 3px no-repeat,
+    linear-gradient(#fff, #fff) right bottom / 3px 24px no-repeat;
+  transition: none;
 }
 
 .region-link span {
   position: absolute;
-  right: 12px;
+  right: 0;
   bottom: 12px;
+  left: 0;
   z-index: 1;
+  width: max-content;
+  margin-inline: auto;
   padding: 8px 12px;
   border-radius: 999px;
   opacity: 0;
-  background: rgba(var(--region-dark), 0.88);
+  visibility: hidden;
+  background: rgb(var(--region-dark));
   box-shadow: 0 5px 16px rgba(56, 24, 4, 0.22);
-  backdrop-filter: blur(6px);
   font-family: "Microsoft YaHei", sans-serif;
   font-size: clamp(12px, 1vw, 16px);
   letter-spacing: 0.04em;
-  transform: translateY(5px);
-  transition: opacity 200ms ease, transform 240ms ease;
+  transition: none;
 }
 
 .region-link span::after {
@@ -114,18 +120,19 @@ body {
 .region-link:hover::before,
 .region-link:focus-visible::before {
   opacity: 1;
+  visibility: visible;
+}
+
+.region-link:hover::after,
+.region-link:focus-visible::after {
+  opacity: 0.95;
+  visibility: visible;
 }
 
 .region-link:hover span,
 .region-link:focus-visible span {
   opacity: 1;
-  transform: translateY(0);
-}
-
-.region-link:hover::after,
-.region-link:focus-visible::after {
-  left: 122%;
-  opacity: 1;
+  visibility: visible;
 }
 
 .region-link:focus-visible {
@@ -166,7 +173,6 @@ body {
 .back-link__arrow {
   font-size: 18px;
   line-height: 1;
-  transition: transform 180ms ease;
 }
 
 .back-link__text {
@@ -180,11 +186,6 @@ body {
   background: rgba(10, 46, 72, 0.9);
   box-shadow: 0 8px 24px rgba(10, 40, 60, 0.3);
   transform: translate(4px, -50%);
-}
-
-.back-link:hover .back-link__arrow,
-.back-link:focus-visible .back-link__arrow {
-  transform: translateX(-3px);
 }
 
 .back-links {
