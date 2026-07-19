@@ -51,6 +51,24 @@ body {
   height: 41.7%;
 }
 
+.new-territories-east-link {
+  --region-color: 61, 151, 48;
+  --region-dark: 38, 104, 31;
+  top: 1.2%;
+  left: 76.4%;
+  width: 22.4%;
+  height: 40%;
+}
+
+.sha-tin-link {
+  --region-color: 24, 103, 190;
+  --region-dark: 13, 67, 128;
+  top: 19.8%;
+  left: 1.8%;
+  width: 18.7%;
+  height: 21.2%;
+}
+
 .tsuen-wan-link {
   --region-color: 205, 72, 91;
   --region-dark: 128, 38, 52;
@@ -58,6 +76,15 @@ body {
   left: 80.6%;
   width: 17.5%;
   height: 22.8%;
+}
+
+.discovery-park-link {
+  --region-color: 232, 146, 25;
+  --region-dark: 153, 83, 10;
+  top: 28.5%;
+  left: 35.4%;
+  width: 15%;
+  height: 19.3%;
 }
 
 .region-link::before {
