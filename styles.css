@@ -115,6 +115,15 @@ body.background-loaded::before,
   height: 19.3%;
 }
 
+.tsuen-wan-west-link {
+  --region-color: 104, 74, 174;
+  --region-dark: 64, 43, 116;
+  top: 25.2%;
+  left: 1.4%;
+  width: 15.8%;
+  height: 19.5%;
+}
+
 .tsuen-wan-promenade-link {
   --region-color: 33, 142, 205;
   --region-dark: 16, 86, 133;
