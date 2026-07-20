@@ -115,6 +115,24 @@ body.background-loaded::before,
   height: 19.3%;
 }
 
+.tsuen-wan-promenade-link {
+  --region-color: 33, 142, 205;
+  --region-dark: 16, 86, 133;
+  top: 3.8%;
+  left: 79.6%;
+  width: 18.1%;
+  height: 20.6%;
+}
+
+.belvedere-garden-link {
+  --region-color: 55, 142, 190;
+  --region-dark: 22, 84, 124;
+  top: 28.4%;
+  left: 80.5%;
+  width: 16.8%;
+  height: 18.7%;
+}
+
 .region-link::before {
   content: "";
   position: absolute;
