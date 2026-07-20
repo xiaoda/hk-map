@@ -7,19 +7,46 @@ body {
 
 body {
   background-color: var(--background-color);
-  background-image: var(--background-image);
+  background-image: var(--placeholder-image, var(--background-image));
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
+body[data-background-image]::before,
+.image-stage[data-background-image]::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: var(--background-image) center / 100% 100% no-repeat;
+  transition: opacity 450ms ease;
+}
+
+body[data-background-image]::before {
+  position: fixed;
+  background-size: contain;
+}
+
+body.background-loaded::before,
+.image-stage.background-loaded::before {
+  opacity: 1;
+}
+
 .image-stage {
   position: fixed;
+  isolation: isolate;
+  overflow: hidden;
   top: 50%;
   left: 50%;
   width: min(100vw, calc(100vh * 1672 / 941));
   aspect-ratio: 1672 / 941;
-  background: var(--background-image) center / 100% 100% no-repeat;
+  background-image: var(--placeholder-image, var(--background-image));
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   transform: translate(-50%, -50%);
 }
 
@@ -27,6 +54,7 @@ body {
   --region-color: 238, 115, 29;
   --region-dark: 126, 54, 10;
   position: absolute;
+  z-index: 1;
   display: grid;
   place-items: center;
   color: #fff;
@@ -168,6 +196,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  body[data-background-image]::before,
+  .image-stage[data-background-image]::before,
   .region-link::before,
   .region-link::after,
   .region-link span {
@@ -177,6 +207,7 @@ body {
 
 .back-link {
   position: fixed;
+  z-index: 2;
   top: 50%;
   left: 10px;
   display: flex;
